@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  front: MyString
+  back: MyString
+  status: false
+  deck: one
+
+two:
+  front: MyString
+  back: MyString
+  status: false
+  deck: two
