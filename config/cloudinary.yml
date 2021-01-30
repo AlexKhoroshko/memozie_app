@@ -1,0 +1,13 @@
+development:
+  cloud_name: "study-project"
+  api_key: "311915276726772"
+  api_secret: "gdnbBNxp-cSiR3_f2ln7a6Pn_-g"
+  secure: true
+  cdn_subdomain: true
+
+production:
+  cloud_name: "study-project"
+  api_key: "311915276726772"
+  api_secret: "gdnbBNxp-cSiR3_f2ln7a6Pn_-g"
+  secure: true
+  cdn_subdomain: true

@@ -50,4 +50,6 @@ gem 'materialize-sass', '~> 1.0.0'
 gem 'nested_scaffold'
 gem 'pagy'
 gem 'rubocop'
+gem 'cloudinary'
+gem 'carrierwave'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

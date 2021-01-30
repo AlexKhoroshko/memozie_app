@@ -3,6 +3,7 @@
 <p>
   <b>Front:</b>
   <%= @card.front %>
+ <p> <%= image_tag(@card.image.url, alt: 'Image',:width => 200, :height => 200) if @card.image? %></p>
 </p>
 
 <p>
