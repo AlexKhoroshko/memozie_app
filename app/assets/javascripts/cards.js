@@ -1,6 +1,6 @@
-$(document).ready(function(){
+$( document ).on('turbolinks:load', function() {
 
-	$('.content_toggle').click(function(){
+	$('body').on('click', '.content_toggle', function(){
 
 		$('.content_block').slideToggle(300);      
 
