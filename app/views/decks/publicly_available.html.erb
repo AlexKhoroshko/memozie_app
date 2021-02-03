@@ -15,18 +15,14 @@
   <tbody>
     <% @decks.each do |deck| %>
       <tr>
-        <td><%= link_to deck.title, deck_path(deck) %></td>
+        <td><%=deck.title%></td>
         <td><%= deck.description %></td>
         <td><%= deck.cards.count%></td>
         <td><%= link_to 'Review', review_deck_path(deck) %></td>
         <td><%= link_to 'Cards List', deck_cards_path(deck) %></td>
-        <td><%= link_to 'Edit', edit_deck_path(deck) %></td>
-        <td><%= link_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Deck', new_deck_path %>

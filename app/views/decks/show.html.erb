@@ -10,5 +10,11 @@
   <%= @deck.description %>
 </p>
 
+<p>
+  <strong>Public:</strong>
+  <%= @deck.public %>
+</p>
+
+
 <%= link_to 'Edit', edit_deck_path(@deck) %> |
 <%= link_to 'Back', decks_path %>

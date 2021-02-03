@@ -45,11 +45,12 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'carrierwave'
+gem 'cloudinary'
 gem 'devise'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'nested_scaffold'
 gem 'pagy'
+gem 'pundit'
 gem 'rubocop'
-gem 'cloudinary'
-gem 'carrierwave'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

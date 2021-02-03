@@ -18,3 +18,10 @@ $error-color: color("red", "base") !default;
 
 $link-color: color("grey", "darken-1") !default;
 @import 'materialize';
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+}

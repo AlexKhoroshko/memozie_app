@@ -1,10 +1,14 @@
 class DecksController < ApplicationController
   before_action :set_deck, only: [:show, :edit, :update, :destroy, :review]
-
+  before_action :authorize_deck, only: [:edit]
   # GET /decks
   # GET /decks.json
   def index
     @decks = current_user.decks
+  end
+
+  def publicly_available
+    @decks = Deck.publicly_available
   end
 
   # GET /decks/1
@@ -70,8 +74,12 @@ class DecksController < ApplicationController
       @deck = Deck.find(params[:id])
     end
 
+    def authorize_deck
+      authorize(@deck)
+    end
+
     # Only allow a list of trusted parameters through.
     def deck_params
-      params.require(:deck).permit(:title, :description, :user_id)
+      params.require(:deck).permit(:title, :description, :user_id, :public)
     end
 end

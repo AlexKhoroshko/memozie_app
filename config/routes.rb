@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :decks do
     resources :cards
     get :review, on: :member
+    get :publicly_available, on: :collection
   end
   
   root to: 'decks#index'
