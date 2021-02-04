@@ -61,7 +61,7 @@ class DecksController < ApplicationController
   end
 
   def review
-    @card = @deck.cards.first
+    @cards = @deck.cards
   end
 
   private

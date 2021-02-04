@@ -2,15 +2,13 @@
   <% if @card.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@card.errors.count, "error") %> prohibited this card from being saved:</h2>
-
       <ul>
-      <% @card.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @card.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :front %><br />
     <%= f.text_field :front %>
@@ -21,10 +19,11 @@
   </div>
   <div>
     <%= f.label :image %><br />
-    <%= f.file_field :image %>  
+    <%= f.file_field :image %>
   </div>
   <br />
   <div class="actions">
-    <%= f.submit %>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
   </div>
+  <br />
 <% end %>

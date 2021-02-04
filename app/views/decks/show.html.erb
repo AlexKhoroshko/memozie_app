@@ -28,7 +28,7 @@
           </div>
           <div class="card-action">
             <%= link_to 'Edit', edit_deck_card_path(card.deck, card) %>
-            <%= link_to 'Destroy', [card.deck, card], method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Delete', [card.deck, card], method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4"><%= card.back %><i class="material-icons right">close</i></span>
