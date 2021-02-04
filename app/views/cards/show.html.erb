@@ -1,27 +1,15 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <b>Front:</b>
   <%= @card.front %>
- <p> <%= image_tag(@card.image.url, alt: 'Image',:width => 200, :height => 200) if @card.image? %></p>
+  <p> <%= image_tag(@card.image.url, alt: 'Image',:width => 200, :height => 200) if @card.image? %></p>
 </p>
-
-
-
-
 <a class="content_toggle" href="#">Показать ответ</a>
-
 <div class="content_block" style="display: none;">
   <b>Back:</b>
   <%= @card.back %>
 </div>
-
-
-
-
-
 <div>
-
-<%= link_to 'Edit', edit_deck_card_path(@card.deck, @card) %> |
-<%= link_to 'Back', deck_cards_path(@card.deck) %>
+  <%= link_to 'Edit', edit_deck_card_path(@card.deck, @card) %> |
+  <%= link_to 'Back', deck_cards_path(@card.deck) %>
 </div>

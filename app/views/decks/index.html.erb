@@ -1,32 +1,36 @@
-<p id="notice"><%= notice %></p>
+<h4>Decks</h4>
 
-<h1>Decks</h1>
-
-<table>
+<table class="striped centered">
   <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
       <th>Cards</th>
-      <th colspan="4"></th>
+      <th>Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @decks.each do |deck| %>
       <tr>
-        <td><%= deck.title %></td>
+        <td><%= link_to deck.title, deck_path(deck)%></td>
         <td><%= deck.description %></td>
         <td><%= deck.cards.count%></td>
-        <td><%= link_to 'Review', review_deck_path(deck) %></td>
-        <td><%= link_to 'Cards List', deck_cards_path(deck) %></td>
-        <td><%= link_to 'Edit', edit_deck_path(deck) %></td>
-        <td><%= link_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a>
+          <ul id="dropdown2" class="dropdown-content">
+            <li><%= link_to 'Review', review_deck_path(deck) %></li>
+            <li><%= link_to 'Show', deck_path(deck) %></li>
+            <li><%= link_to 'Edit', edit_deck_path(deck) %></li>
+            <li><%= link_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Deck', new_deck_path %>
+<div class="card-action">
+  <%= link_to 'New Deck', new_deck_path %>
+<div>
