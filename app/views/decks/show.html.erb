@@ -10,7 +10,9 @@
 </div>
 <div class="card-action">
   <%= link_to 'Create Card', new_deck_card_path(@deck) %>
+  <%= link_to 'Review Cards', review_deck_path(@deck) %></li>
   <%= link_to 'Edit', edit_deck_path(@deck) %>
+  <%= link_to 'Delete', @deck, method: :delete, data: { confirm: 'Are you sure?' } %>
   <%= link_to 'Back', decks_path %>
 </div>
 <div class="divider"></div>
@@ -18,7 +20,7 @@
   <h5><strong>Cards:</strong></h5>
   <div class="row">
     <% @deck.cards.each do |card| %>
-      <div class="col s3">
+      <div class="col m3">
         <div class="card sticky-action">
           <div class="card-image waves-effect waves-block waves-light">
             <div class="activator"><%= image_tag(card.image.url, alt: 'Image',:width => 200, :height => 200) if card.image? %></div>

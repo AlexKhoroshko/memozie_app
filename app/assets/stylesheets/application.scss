@@ -24,3 +24,7 @@ $link-color: color("grey", "darken-1") !default;
 #error_explanation{
   color: red;
 }
+.truncate {
+  display: inline-block;
+
+}
