@@ -1,7 +1,7 @@
 <%= form_for(deck) do |f| %>
   <% if deck.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(deck.errors.count, "error") %> prohibited this deck from being saved:</h2>
+      <h6><%= pluralize(deck.errors.count, "error") %> prohibited this deck from being saved:</h6>
       <ul>
         <% deck.errors.full_messages.each do |message| %>
           <li><%= message %></li>
