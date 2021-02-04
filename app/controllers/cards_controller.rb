@@ -25,7 +25,7 @@ class CardsController < ApplicationController
     @card = @deck.cards.build(card_params)
 
     if @card.save
-      redirect_to(deck_cards_url(@deck), notice: 'Card was successfully created.')
+      redirect_to(deck_url(@deck), notice: 'Card was successfully created.')
     else
       render action: 'new'
     end
@@ -34,7 +34,7 @@ class CardsController < ApplicationController
   # PUT decks/1/cards/1
   def update
     if @card.update_attributes(card_params)
-      redirect_to(deck_cards_url(@deck), notice: 'Card was successfully updated.')
+      redirect_to(deck_url(@deck), notice: 'Card was successfully updated.')
     else
       render action: 'edit'
     end
@@ -44,7 +44,7 @@ class CardsController < ApplicationController
   def destroy
     @card.destroy
 
-    redirect_to deck_cards_url(@deck)
+    redirect_to deck_url(@deck)
   end
   
 
