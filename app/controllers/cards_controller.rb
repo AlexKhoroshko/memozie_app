@@ -48,8 +48,9 @@ class CardsController < ApplicationController
   end
   
   def change_status
-    @card.update!(:status)
-    ChangeStatusWorker.perform_async(1)
+    card = Card.find(params[:id])
+    card.inactive!
+    ChangeStatusWorker.perform_in(params[:time].to_i.seconds,card.id)
   end
 
   private

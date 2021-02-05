@@ -17,11 +17,11 @@
 </div>
 
 
-
+ <%= link_to 'Good', change_status_deck_card_path(time: 20),       method: :put, data: { confirm: 'Yes' } %>
+ 
 
 
 <div>
-
 <%= link_to 'Edit', edit_deck_card_path(@card.deck, @card) %> |
 <%= link_to 'Back', deck_cards_path(@card.deck) %>
 </div>
