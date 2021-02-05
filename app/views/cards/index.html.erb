@@ -1,26 +1,26 @@
-<h1>Listing cards</h1>
-
-<table>
-  <tr>
-    <th>Front</th>
-    <th>Back</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @cards.each do |card| %>
-  <tr>
-    <td><%= card.front %></td>
-    <td><%= card.back %></td>
-    <td><%= link_to 'Show', [card.deck, card] %></td>
-    <td><%= link_to 'Edit', edit_deck_card_path(card.deck, card) %></td>
-    <td><%= link_to 'Destroy', [card.deck, card], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
+<h4 class='center'><%=@deck.title%> cards</h4>
+<div class="row">
+  <% @cards.each do |card| %>
+    <div class="col s3">
+      <div class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <div class="activator"><%= image_tag(card.image.url, alt: 'Image',:width => 200, :height => 200) if card.image? %></div>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><%= card.front %><i class="material-icons right">more_vert</i></span>
+        </div>
+        <div class="card-action">
+          <%= link_to 'Edit', edit_deck_card_path(card.deck, card) %>
+          <%= link_to 'Delete', [card.deck, card], method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><%= card.back %><i class="material-icons right">close</i></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 <br />
-
-<%= link_to 'New Card', new_deck_card_path(params[:deck_id]) %>
-<%= link_to 'Decks', decks_path %>
+<div class="card-action">
+  <%= link_to 'New Card', new_deck_card_path(params[:deck_id]) %>
+</div>

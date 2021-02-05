@@ -1,12 +1,29 @@
-<p>
-  <b>Front:</b>
-  <%= @card.front %>
-</p>
-
-<p>
-  <b>Back:</b>
-  <%= @card.back %>
-</p>
-
-<%= link_to 'Edit', edit_deck_card_path(@card.deck, @card) %> |
-<%= link_to 'Back', deck_cards_path(@card.deck) %>
+<div class="row">
+  <div class="carousel carousel-slider">
+    <% @cards.each do |card| %>
+      <a class="carousel-item" >
+        <div class="col s12 center">
+          <div class="col l4"></div>
+          <div class='col l4'>
+            <div class="card sticky-action">
+              <div class="card-image waves-effect waves-block waves-light">
+                <div class="activator"><%= image_tag(card.image.url, alt: 'Image',:width => 200, :height => 300) if card.image? %></div>
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"><%= card.front %><i class="material-icons right">more_vert</i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><%= card.back %><i class="material-icons right">close</i></span>
+                <div class="card-action">
+                  <button class="moveNextCarousel btn waves-effect waves-light red" type="submit" name="action">Wrong</button>
+                  <button class="moveNextCarousel btn waves-effect waves-light" type="submit" name="action">Right</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col l4"></div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>
