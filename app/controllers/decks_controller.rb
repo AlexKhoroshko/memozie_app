@@ -61,7 +61,10 @@ class DecksController < ApplicationController
   end
 
   def review
-    @cards = @deck.cards
+    @cards = @deck.cards.active
+    if @cards.length.zero?
+      redirect_to decks_path
+    end
   end
 
   private

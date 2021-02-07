@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   before_action :set_deck
+
   before_action :set_card, only: [:show, :edit, :update, :destroy, :change_status]
 
   # GET decks/1/cards
@@ -46,14 +47,16 @@ class CardsController < ApplicationController
 
     redirect_to deck_url(@deck)
   end
-  
+
   def change_status
     card = Card.find(params[:id])
     card.inactive!
-    ChangeStatusWorker.perform_in(params[:time].to_i.seconds,card.id)
+    ChangeStatusWorker.perform_in(params[:time].to_i.minutes, card.id)
+    redirect_to  review_deck_path(@deck)
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_deck
       @deck = Deck.find(params[:deck_id])

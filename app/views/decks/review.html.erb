@@ -15,8 +15,17 @@
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><%= card.back %><i class="material-icons right">close</i></span>
                 <div class="card-action">
-                  <button class="moveNextCarousel btn waves-effect waves-light red" type="submit" name="action">Wrong</button>
-                  <button class="moveNextCarousel btn waves-effect waves-light" type="submit" name="action">Right</button>
+
+                <%= form_for(card, url: change_status_deck_card_path(card, time: 1, deck_id: card.deck.id), method: :put) do |f| %>
+                	<%= f.submit 'Wrong 1 min', class: 'btn waves-effect waves-light btn-block red' %>
+                <% end %>
+                <%= form_for(card, url: change_status_deck_card_path(card, time: 10, deck_id: card.deck.id), method: :put) do |f| %>
+                	<%= f.submit 'Good 10 min', class: 'btn waves-effect waves-light btn-block green' %>
+                <% end %> 
+                <%= form_for(card, url: change_status_deck_card_path(card, time: 30, deck_id: card.deck.id), method: :put) do |f| %>
+                	<%= f.submit 'Exelent 30 min', class: 'btn waves-effect waves-light btn-block blue ' %>
+                <% end %>
+
                 </div>
               </div>
             </div>

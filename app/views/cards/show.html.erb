@@ -5,18 +5,10 @@
   <p> <%= image_tag(@card.image.url, alt: 'Image',:width => 200, :height => 200) if @card.image? %></p>
 </p>
 
-<a class="content_toggle" href="#">Показать ответ</a>
-
-
-<div class="content_block" style="display: none;">
+<p>
   <b>Back:</b>
   <%= @card.back %>
-</div>
-
-
- <%= link_to 'Good', change_status_deck_card_path(time: 20),       method: :put, data: { confirm: 'Yes' } %>
- 
-
+</p>
 
 <div>
 <%= link_to 'Edit', edit_deck_card_path(@card.deck, @card) %> |
