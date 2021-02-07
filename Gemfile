@@ -52,4 +52,6 @@ gem 'pagy'
 gem 'rubocop'
 gem 'cloudinary'
 gem 'carrierwave'
+gem 'sidekiq'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
