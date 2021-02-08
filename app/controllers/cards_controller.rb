@@ -48,16 +48,8 @@ class CardsController < ApplicationController
 
   def change_status
     card = Card.find(params[:id])
-    time = case params[:commit]
-           when 'Wrong 1 min'
-             1
-           when 'Good 10 min'
-             10
-           when 'Exelent 30 min'
-             30
-           end
     card.inactive!
-    ChangeStatusWorker.perform_in(time.to_i.minutes, card.id)
+    ChangeStatusWorker.perform_in(params[:time].to_i.minutes, card.id)
     redirect_to review_deck_path(@deck)
   end
 

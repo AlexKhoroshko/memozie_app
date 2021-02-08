@@ -17,13 +17,13 @@
                 <div class="card-action">
                   <%= form_for(card, url: change_status_deck_card_path(card, deck_id: card.deck.id), method: :put) do |f| %>
                     <div class="col s12">
-                      <%= f.button 'Wrong 1 min', class: 'btn waves-effect waves-light btn-block red' %>
+                      <%= f.button 'Wrong 1 min', name: 'time', value: 1, class: 'btn waves-effect waves-light btn-block red' %>
                     </div>
                     <div class="col s12">
-                      <%= f.button 'Good 10 min', class: 'btn waves-effect waves-light btn-block green' %>
+                      <%= f.button 'Good 10 min', name: 'time', value: 10, class: 'btn waves-effect waves-light btn-block green' %>
                     </div>
                     <div class="col s12">
-                      <%= f.button 'Exelent 30 min', class: 'btn waves-effect waves-light btn-block blue' %>
+                      <%= f.button 'Exelent 30 min', name: 'time', value: 30, class: 'btn waves-effect waves-light btn-block blue' %>
                     </div>
                   <% end %>
                 </div>
