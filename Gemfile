@@ -53,5 +53,5 @@ gem 'materialize-sass', '~> 1.0.0'
 gem 'nested_scaffold'
 gem 'pagy'
 gem 'rubocop'
-gem 'sidekiq'
+gem 'sidekiq', '~> 5.2.8'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
