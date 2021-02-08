@@ -25,7 +25,14 @@ $link-color: color("grey", "darken-1") !default;
 .carousel {
   min-height: 440px;
   .card.sticky-action {
-    min-height: 200px;
+    min-height: 300px;
   } 
+  .waves-effect input[type="submit"]{
+    color: white;
+  }
+  .card-action .s12{
+    margin-bottom: 20px;
+  }
 }
+
    

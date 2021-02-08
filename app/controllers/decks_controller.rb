@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-  before_action :set_deck, only: [:show, :edit, :update, :destroy, :review]
+  before_action :set_deck, only: %i[show edit update destroy review]
 
   # GET /decks
   # GET /decks.json
@@ -9,8 +9,7 @@ class DecksController < ApplicationController
 
   # GET /decks/1
   # GET /decks/1.json
-  def show
-  end
+  def show; end
 
   # GET /decks/new
   def new
@@ -18,8 +17,7 @@ class DecksController < ApplicationController
   end
 
   # GET /decks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /decks
   # POST /decks.json
@@ -61,20 +59,22 @@ class DecksController < ApplicationController
   end
 
   def review
-    @cards = @deck.cards.active
+    @cards = @deck.cards.to_review
     if @cards.length.zero?
+      flash[:alert] = 'Nothing to review'
       redirect_to decks_path
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_deck
-      @deck = Deck.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def deck_params
-      params.require(:deck).permit(:title, :description, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_deck
+    @deck = Deck.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def deck_params
+    params.require(:deck).permit(:title, :description, :user_id)
+  end
 end
