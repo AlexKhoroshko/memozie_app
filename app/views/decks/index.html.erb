@@ -17,13 +17,13 @@
           <td><%= deck.cards.count%></td>
           <td>
             <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a>
-            <ul id="dropdown2" class="dropdown-content">
-              <li><%= link_to 'Review', review_deck_path(deck) %></li>
-              <li><%= link_to 'Show', deck_path(deck) %></li>
-              <li><%= link_to 'Edit', edit_deck_path(deck) %></li>
-              <li><%= link_to 'Delete', deck, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-            </ul>
           </td>
+          <ul id="dropdown2" class="dropdown-content">
+            <li><%= link_to 'Review', review_deck_path(deck) %></li>
+            <li><%= link_to 'Show', deck_path(deck) %></li>
+            <li><%= link_to 'Edit', edit_deck_path(deck) %></li>
+            <li><%= link_to 'Delete', deck, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
         </tr>
       <% end %>
     </tbody>
