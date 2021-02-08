@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
   resources :decks do
-    resources :cards
-    get :review, on: :member
-  end
-
-  resources :decks, only: :none do
-    resources :cards, only: :none do
+    resources :cards do
       put :change_status, on: :member
     end
+    get :review, on: :member
   end
 
   root to: 'decks#index'
